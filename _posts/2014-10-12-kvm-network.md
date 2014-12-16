@@ -232,8 +232,9 @@ Mount the disk or volumn and start to edit files.
 When everything is done, use `exit` to leave.  
     ><fs> exit    
     
-# Reference
- 1. [Libvirt virtual network]: http://libvirt.org/formatnetwork.html#elementsAddress
- 2. [Bonding options]: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Specific_Kernel_Module_Capabilities.html#sec-Using_Channel_Bonding).
- 3. [Doc of virt-install]: http://linux.die.net/man/1/virt-install
- 4. [Modify images]: http://docs.openstack.org/image-guide/content/ch_modifying_images.html
+# Reference  
+
+1. [Libvirt virtual network]: http://libvirt.org/formatnetwork.html#elementsAddress  
+2. [Bonding options]: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Specific_Kernel_Module_Capabilities.html#sec-Using_Channel_Bonding).  
+3. [Doc of virt-install]: http://linux.die.net/man/1/virt-install  
+4. [Modify images]: http://docs.openstack.org/image-guide/content/ch_modifying_images.html  
