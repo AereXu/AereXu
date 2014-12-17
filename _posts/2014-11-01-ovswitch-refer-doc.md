@@ -36,7 +36,8 @@ Install openvswitch and configure sFlow
     yum localinstall /home/ovswitch/rpmbuild/RPMS/x86_64/kmod-openvswitch-2.1.3-1.el6.x86_64.rpm -y
     yum localinstall /home/ovswitch/rpmbuild/RPMS/x86_64/openvswitch-2.1.3-1.x86_64.rpm -y
 
-After the installation is done, execute `modinfo openvswitch` and `modinfo bridge`. Compare the "vermagic" lines output to ensure they are exactly the same.
+After the installation is done, execute `modinfo openvswitch` and `modinfo bridge`. Compare the "vermagic" lines output to ensure they are exactly the same.  
+
 ## Configurate openvswitch
     
     modprobe openvswitch
@@ -52,15 +53,19 @@ After the installation is done, execute `modinfo openvswitch` and `modinfo bridg
     service openvswitch restart
     ovs-vsctl --no-wait init
 
-# Using openvswitch in KVM    
-## Make a ovs bridge
+# Using openvswitch in KVM  
+
+## Make a ovs bridge  
 Basically the ovs bridge is just like the linux bridge but is more powerful. For instance, it supports VLan tag.  
 To create a ovs-bridge, execute `ovs-vsctl add-br $BRIDGE`. To link some Ethernet device to it, execute `ovs-vsctl add-port $BRIDGE $ETH-DEV`. 
-To check the status of the ovs-bridge, execute `ovs-vsctl add-br show` 
-## Monitoring VM traffic using sFlow
-### Example diagram
-![Alt teasdfxt](http://openvswitch.org/support/config-cookbooks/sflow/sflow-setup.png)
-### Build ovs-bridge and VMs
+To check the status of the ovs-bridge, execute `ovs-vsctl add-br show`  
+
+## Monitoring VM traffic using sFlow  
+
+### Example diagram  
+![Alt teasdfxt](http://openvswitch.org/support/config-cookbooks/sflow/sflow-setup.png)  
+
+### Build ovs-bridge and VMs  
 Build a ovs-bridge named br0 and link it to eth0.  
 
     ovs-vsctl add-br br0
@@ -68,7 +73,7 @@ Build a ovs-bridge named br0 and link it to eth0.
     
 Use `ovs-vsctl show` to check the status.
 
-### Configuration file
+### Configuration file  
 Touch a file names as __sflow-conf.sh__ and `chmod +x sflow-conf.sh`. Then add beloe contents into it.
 
     #!/bin/bash
@@ -84,7 +89,7 @@ Touch a file names as __sflow-conf.sh__ and `chmod +x sflow-conf.sh`. Then add b
 * Device name eth1 (AGENT_IP) is a value indicates that the sFlow agent should send traffic from eth1's IP address. 
 * The other values indicate settings regarding the frequency and type of packet sampling that sFlow should perform.    
 
-### Add rule to the ovs-bridge
+### Add rule to the ovs-bridge  
 On Host1, run the following command to create an sFlow configuration and attach it to bridge br0.
 
     ovs-vsctl -- --id=@sflow create sflow agent=${AGENT_IP} target=\"${COLLECTOR_IP}:${COLLECTOR_PORT}\" header=${HEADER_BYTES} sampling=${SAMPLING_N} polling=${POLLING_SECS} -- set bridge br0 sflow=@sflow

@@ -8,7 +8,6 @@ tags: [glusterfs, cinder]
 modified: 2014-12-17
 ---
 
-# Introduction  
 This is a basic storage sharing investigation in openstack. The cinder provides block storage to instances and the instances will use this virtual disk as glusterfs backend. Then the instances defined as gluster server will provide shared volumes to other clients. 
 
 <!--more-->
@@ -16,13 +15,15 @@ This is a basic storage sharing investigation in openstack. The cinder provides 
 The diagram is below.  
 ![Diagram](http://i.imgur.com/ynVavPS.png)  
 
+# Introduction
 The OS in instance is based on "Red Hat Enterprise Linux Server release 6.5 (Santiago)".  
 The openstack version is icehouse.
 The glusterfs version is 3.5.2.  
 
-# Cinder  
+# Cinder
 Cinder is a Block Storage service for OpenStack. It's designed to allow the use of either a reference implementation (LVM) to present storage resources to end users that can be consumed by the OpenStack Compute Project (Nova).  
-It separates data storage from compute. The data will able to remain and use after an instance crashed.  
+It separates data storage from compute. The data will able to remain and use after an instance crashed.
+
 ## Create cinder block volume
 Create two cinder volumes using `cinder create`.   
 
@@ -169,7 +170,8 @@ Verify the peer status from the gluServer1 using the following commands:
     State: Peer in Cluster (Connected)
 
 This can be did at gluServer2 too and the only difference should be the Hostname and Uuid.  
-Here's the way to check the storage pool.  
+Here's the way to check the storage pool.
+
     # gluster pool list
     UUID                                    Hostname        State
     1f318326-7636-4ef6-94c0-0a6e95a816af    gluServer1      Connected

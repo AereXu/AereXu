@@ -53,6 +53,7 @@ The output message should be like "__QEMU PC emulator version 0.12.1 (qemu-kvm-0
 * Iptables: If your new network can't access the Internet, check the rules of your iptables or shut down your iptables by executing `service iptables stop`
 
 ## The Configuration of no bonding
+
 ### Setting up a linux bridge 
 Go into network configuration directory.  
   `cd /etc/sysconfig/network-scripts`  
@@ -97,6 +98,7 @@ If no errors occur, execute `brctl show` to get the information as follow:
     br1            8000.525400117fda    yes             eth1
 
 ### Using libvirt tools to build virtual networks
+
 #### Definition of virtual network
 Libvirt use xml format file to define a network. [For more](http://libvirt.org/formatnetwork.html#elementsAddress)  
 This example showes a bridge forward network. The libvirt will create a __tap__ device and bond it to a bridge. Then the guest virtual machine will use this tap as its ethernet device.    
@@ -114,10 +116,13 @@ This example showes a bridge forward network. The libvirt will create a __tap__ 
 
 #### Active the virtual network
 `virsh net-create $xml_file` then a temporaty virtual network is created. If you this net to be automatically started at boot, then `virsh net-autostart $netname`.
+
 ## The Configuration including bonds
 Most of the steps are the same with no bonding one. The difference is as follow steps.
+
 ### Setting up a linux bridge 
 Please refer to the part of setting up a lunix bridge in "no bonding". They are exactly the same as those steps. 
+
 ### Setting up a bonding
 Go into network configuration directory.  
 `cd /etc/sysconfig/network-scripts`  
@@ -157,7 +162,9 @@ Then a ifcfg-eth3.
 
 ### Others
 The rest steps like manage linux bridges and virtual networks are the same as "The Configuration of no bonding".
+
 # Create a KVM 
+
 ## Create a KVM using an existing image
 Assume that there's an image named "bmc15b-Fri.qcow2" which is created from some other KVM's snapshot.
 
