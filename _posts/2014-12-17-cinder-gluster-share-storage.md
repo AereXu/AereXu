@@ -1,6 +1,19 @@
+---
+author: "AereXu"
+layout: post
+category: Storage
+title: Cinder gluster share storage
+tagline: by Snail
+tags: [glusterfs, cinder]
+modified: 2014-12-17
+---
 
 # Introduction  
-This is a basic storage sharing investigation in openstack. The cinder provides block storage to instances and the instances will use this virtual disk as glusterfs backend. Then the instances defined as gluster server will provide shared volumes to other clients. The diagram is below.  
+This is a basic storage sharing investigation in openstack. The cinder provides block storage to instances and the instances will use this virtual disk as glusterfs backend. Then the instances defined as gluster server will provide shared volumes to other clients. 
+
+<!--more-->
+
+The diagram is below.  
 ![Diagram](http://i.imgur.com/ynVavPS.png)  
 
 The OS in instance is based on "Red Hat Enterprise Linux Server release 6.5 (Santiago)".  
