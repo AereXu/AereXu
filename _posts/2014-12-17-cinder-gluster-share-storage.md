@@ -5,14 +5,14 @@ category: Storage
 title: Cinder gluster share storage
 tagline: by Snail
 tags: [glusterfs, cinder]
-modified: 2014-12-17
+modified: 2014-12-19
 ---
 
 This is a basic storage sharing investigation in openstack. The cinder provides block storage to instances and the instances will use this virtual disk as glusterfs backend. Then the instances defined as gluster server will provide shared volumes to other clients. 
 
 <!--more-->
 
-# Introduction
+# Introduction 
 
 The diagram is below.  
 ![Diagram](http://i.imgur.com/ynVavPS.png)  
@@ -302,8 +302,19 @@ With the service of manila, the diagram of shared storage between instances can 
 ![manila](http://i.imgur.com/rgVFkh1.png)
 
 Monila supports NFS now and release a demo based on Openstack icehouse version using Devstack. Here are the two demo links.  
- 1. [https://wiki.openstack.org/wiki/Manila/IcehouseDevstack](https://wiki.openstack.org/wiki/Manila/IcehouseDevstack)
+ 1. [https://wiki.openstack.org/wiki/Manila/IcehouseDevstack](https://wiki.openstack.org/wiki/Manila/IcehouseDevstack)  
  2. [http://netapp.github.io/openstack/2014/08/15/manila-devstack/](http://netapp.github.io/openstack/2014/08/15/manila-devstack/)
+
+# Other informations
+
+## Swift, openstack object storage 
+Swift is a core service who provides highly available, distributed, eventually consistent object/blob storage. It uses RESTful API to transfer data. It gets great advantages in cloud storage environment for it simplifies data as objects in containers. [For more](http://docs.openstack.org/developer/swift/).
+
+## Fabrix Scale Out NAS
+Fabrix is pioneering a revolutionary, cloud based scale out storage and computing platform focused on providing a simple, tightly integrated solution optimized for media storage, processing and delivery applications such as Cloud DVR, and VOD expansion.  
+Ericsson has acquired Fabrix in the goal of accelerating cloud video transformation.  
+Fabrix's storage technology gets many advantages like unified clustered storage, distributed computing and shared nothing architecture. [For more](http://www.fabrixsystems.com/technology/scale-out-storage).
+
 
 # Reference
  1. __Volume type of gluster introdution__: http://gluster.org/community/documentation/index.php/Gluster_3.2:_Setting_Up_GlusterFS_Server_Volumes  
