@@ -4,7 +4,7 @@ layout: post
 category: Java
 title: Use external configuration to get Datasource in Spring-boot
 tagline: by Snail
-tags: [SpringData,SpringBoot]
+tags: [SpringData, SpringBoot]
 modified: 2016-04-10
 ---
 
